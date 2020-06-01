@@ -3,7 +3,7 @@
 docker rm -f ftp
 docker run -d \
 --name ftp \
--v /srv/mediacenter/disk3/nas:/home/vsftpd \
+-v /srv/mediacenter/app:/home/vsftpd \
 -p 20:20 \
 -p 21:21 \
 -p 47400-47470:47400-47470 \
