@@ -1,4 +1,5 @@
 #!/bin/sh
 
-curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o portainer-agent-stack.yml
-docker stack deploy --compose-file=portainer-agent-stack.yml portainer
+
+docker volume create portainer_data
+docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
